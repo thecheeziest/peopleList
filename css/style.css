@@ -1,0 +1,47 @@
+.con-box {width: 500px; margin: auto; padding: 50px 0; box-sizing: border-box;}
+.con-box .btn {display: flex; justify-content: space-around;}
+.con-box button {
+  width: 200px; height: 50px;
+  border: 1px solid #91cf62;
+  background: #d3ffb1;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #6fbf31;
+  cursor: pointer;
+}
+.con-box ul li {
+  border: 1px solid #91cf62;
+  display: flex;
+  padding: 20px 30px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+.con-box ul li .pic {
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: #000;
+  overflow: hidden;
+}
+.con-box ul li .pic img {
+  height: 100%;
+  object-fit: cover;
+}
+.con-box ul li .pro {
+  width: 130px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.con-box ul li .pro strong {
+  font-weight: 700;
+  color: #6fbf31;
+}
+.con-box ul li .iconify {
+  font-size: 70px;
+  color: #6fbf31;
+  margin-top: 30px;
+}

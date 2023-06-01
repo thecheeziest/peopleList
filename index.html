@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <style>
+      .con-box {width: 500px; margin: auto; padding: 50px 0; box-sizing: border-box;}
+      .con-box .btn {display: flex; justify-content: space-around;}
+      .con-box button {
+        width: 200px; height: 50px;
+        border: 1px solid #91cf62;
+        background: #d3ffb1;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #6fbf31;
+        cursor: pointer;
+      }
+      .con-box ul li {
+        border: 1px solid #91cf62;
+        display: flex;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        justify-content: space-between;
+        margin-bottom: 25px;
+      }
+      .con-box ul li .pic {
+        width: 150px; height: 150px;
+        border-radius: 50%;
+        background: #000;
+        overflow: hidden;
+      }
+      .con-box ul li .pic img {
+        height: 100%;
+        object-fit: cover;
+      }
+      .con-box ul li .pro {
+        width: 130px;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      .con-box ul li .pro strong {
+        font-weight: 700;
+        color: #6fbf31;
+      }
+      .con-box ul li .iconify {
+        font-size: 70px;
+        color: #6fbf31;
+        margin-top: 30px;
+      }
+    </style>
+</head>
+<body>
+  <div class="con-box">
+    <div class="btn">
+      <button class="del">명단 삭제</button>
+      <button class="show">명단 보기</button>
+    </div>
+    <ul>
+      <!-- <li>
+        <div class="pic"> <img src="./images/pupcat0.jpg" alt=""> </div>
+        <div class="pro">
+          <p><strong>이름</strong></p>
+          <p>직업</p>
+          <p>전화번호</p>
+        </div>
+        <span class="iconify" data-icon="ph:heart-fill"></span>
+        <span class="iconify" data-icon="ph:heart-light"></span>
+      </li> -->
+    </ul>
+  </div>
+
+
+  <script type="module">
+    const obj = [
+      {name: '감고양', job: '뷰티 모델', tel: '010-1212-8282', picURL: './images/pupcat0.jpg', like: 'light'},
+      {name: '강 패', job: '레슬링 선수', tel: '010-5123-7777', picURL: './images/pupcat1.jpg', like: 'light'},
+      {name: '고보보', job: '베이비시터', tel: '010-2582-3544', picURL: './images/pupcat2.jpg', like: 'fill'},
+      {name: '사진사', job: '포토그래퍼', tel: '010-3333-7575', picURL: './images/pupcat3.jpg', like: 'light'},
+      {name: '유 하', job: '유튜버', tel: '010-0011-1100', picURL: './images/pupcat4.jpg', like: 'fill'},
+      {name: '이멍냥', job: '마법사', tel: '010-5555-8888', picURL: './images/pupcat5.jpg', like: 'fill'},
+    ];
+
+    const btn = document.querySelectorAll('button');
+    const ul = document.querySelector('.con-box ul');
+
+    const showList = () => {
+      const newObj = obj.map(item => {
+        const {name, job, tel, picURL, like} = item;
+        return `
+        <li>
+        <div class="pic"> <img src="${picURL}" alt=""> </div>
+        <div class="pro">
+          <p><strong>${name}</strong></p>
+          <p>${job}</p>
+          <p>${tel}</p>
+        </div>
+        <span class="iconify" data-icon="ph:heart-${like}"></span>
+      </li>`
+      }).join('');
+      ul.innerHTML = newObj;
+    };
+
+    btn.forEach( item => {
+      if (item.classList.contains('show')) {
+        item.addEventListener('click', e => {
+          showList();
+        });
+      } else {
+        item.addEventListener('click', e => {
+          ul.innerHTML = '';
+        });
+      };
+    });
+
+  </script>
+</body>
+</html>
